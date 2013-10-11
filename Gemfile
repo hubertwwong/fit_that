@@ -170,7 +170,10 @@ gem 'bcrypt-ruby'
 #
 # >> url
 # https://github.com/bmabey/database_cleaner
-# 
+#
+# note:
+# you don't need to do most of this if you install cucumber.
+#
 # >> load the lib in the spec_helper
 # require 'database_cleaner'
 # 
@@ -194,5 +197,22 @@ gem 'bcrypt-ruby'
 #
 #
 #
+# HIGH VOLTAGE
+# ============================================================================
 #
-
+# >> url
+# https://github.com/thoughtbot/high_voltage
+# 
+# throw static files in views/pages/your_page.rb
+#
+#
+#
+# DEVISE
+# ============================================================================
+#
+#
+#
+#
+#
+#
+#
