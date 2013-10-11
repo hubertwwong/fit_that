@@ -53,4 +53,8 @@ FitThat::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  # ROOT
+  # need to set it for devise.
+  root :to => 'home#index'
 end

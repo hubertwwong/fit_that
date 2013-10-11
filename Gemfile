@@ -210,9 +210,44 @@ gem 'bcrypt-ruby'
 # DEVISE
 # ============================================================================
 #
+# >> url
+#
+# >> install
+# rails g devise:install
+# rails g devise:view
 #
 #
+# >> change root. (config/routes.rb)
+#
+# you see this in devise when you run the devise install. not sure why. 
+#
+# # ROOT
+# # need to set it for devise.
+# root :to => 'home#index'
+#
+# 
+# >> set up action mailer (config/environments/development.rb) 
+# 
+# # DEVISE
+# config.action_mailer.default_url_options { :host => 'localhost:3000' }
+# 
+#
+# >> flash messages (app/views/layouts/application.html.erb)
+#
+# odd that it doesn't add it. when you do the install.
+#
+# <!-- devise -->
+# <p class="notice"><%= notice %></p>
+# <p class="alert"><%= alert %></p>
 #
 #
+# >> heroku. 3.2 (config/application.rb)
+# 
+# baiscally turns off precompile and does not allow access to models.
+# heroku might have some other other stuff that you need to do.
+# 
+# # heroku.
+# config.assets.initalize_on_precompile = false
+# 
 #
-#
+# 
