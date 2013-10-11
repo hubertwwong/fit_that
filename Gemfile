@@ -250,4 +250,7 @@ gem 'bcrypt-ruby'
 # config.assets.initalize_on_precompile = false
 # 
 #
+# >> create a user
 # 
+# rails g devise User 
+#
