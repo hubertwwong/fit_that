@@ -48,7 +48,15 @@ end
 ##############################################################################
 # some RVM installs don't have have readline support.
 # so install it just in case.
-gem 'rb-readline'
+#
+# note. that 0.5.0 has issues with rails 4.0
+# need to use an older version. (0.4.2)
+# until its fixed.
+# https://github.com/luislavena/rb-readline/issues/84
+#
+# not sure aobut this but you might be better off using the OS readline lib
+# instead of this...
+gem 'rb-readline' , '~> 0.4.2'
 
 # if you need mysql support
 gem 'mysql2'
