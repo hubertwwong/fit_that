@@ -3,11 +3,23 @@ require "spec_helper"
 describe TaskType do
   
   describe "relationships" do
-    it "a task type should have a category" do
-      FactoryGirl.create :task_type
+    describe "basic" do
+      # use lets for factories.
+      # does lazy loading.
+      let(:tt) {FactoryGirl.create :task_type}
       
-      # results
-      TaskType.all.length.should == 1
+      before(:each) do
+        tt
+        @tt1 = TaskType.first
+      end
+      
+      it "name should be superAwesomeWorkoutN" do
+        expect(@tt1.name).to eq('superAwesomeWorkout1')
+      end
+      
+      it "category should exist" do
+        expect(@tt1.task_category.name).to eq('category2')
+      end
     end
   end
   
