@@ -1,3 +1,3 @@
 class TaskType < ActiveRecord::Base
-  belongs_to :task_category_id
+  belongs_to :task_category
 end
