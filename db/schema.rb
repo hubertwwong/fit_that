@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011223236) do
+ActiveRecord::Schema.define(version: 20131014202934) do
 
   create_table "task_categories", force: true do |t|
     t.string   "name"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20131011223236) do
 
   create_table "task_types", force: true do |t|
     t.string   "name"
-    t.integer  "task_category_id_id"
+    t.integer  "task_category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "task_types", ["task_category_id_id"], name: "index_task_types_on_task_category_id_id"
+  add_index "task_types", ["task_category_id"], name: "index_task_types_on_task_category_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
