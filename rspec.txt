@@ -1,0 +1,20 @@
+F...
+
+Failures:
+
+  1) Task relationships basic note should be something
+     Failure/Error: let(:task1) {FactoryGirl.create :task}
+     ActiveRecord::RecordInvalid:
+       Validation failed: Password can't be blank
+     # ./spec/models/task_spec.rb:9:in `block (4 levels) in <top (required)>'
+     # ./spec/models/task_spec.rb:12:in `block (4 levels) in <top (required)>'
+
+Finished in 1.28 seconds
+4 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/models/task_spec.rb:16 # Task relationships basic note should be something
+
+Randomized with seed 44917
+

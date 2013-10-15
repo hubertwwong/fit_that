@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131014202934) do
+ActiveRecord::Schema.define(version: 20131014225619) do
 
   create_table "task_categories", force: true do |t|
     t.string   "name"
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 20131014202934) do
   end
 
   add_index "task_types", ["task_category_id"], name: "index_task_types_on_task_category_id"
+
+  create_table "tasks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "task_category_id"
+    t.integer  "task_type_id"
+    t.string   "note"
+    t.integer  "length"
+    t.integer  "speed"
+    t.integer  "weight"
+    t.integer  "rep"
+    t.datetime "started_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["task_category_id"], name: "index_tasks_on_task_category_id"
+  add_index "tasks", ["task_type_id"], name: "index_tasks_on_task_type_id"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

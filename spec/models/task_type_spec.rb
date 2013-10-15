@@ -13,12 +13,16 @@ describe TaskType do
         @tt1 = TaskType.first
       end
       
-      it "name should be superAwesomeWorkoutN" do
-        expect(@tt1.name).to eq('superAwesomeWorkout1')
+      context "fields" do
+        it "name" do
+          expect(@tt1.name).to include('superAwesomeWorkout')
+        end
       end
       
-      it "category should exist" do
-        expect(@tt1.task_category.name).to eq('category2')
+      context "task category" do
+        it "name" do
+          expect(@tt1.task_category.name).to include('category')
+        end
       end
     end
   end
