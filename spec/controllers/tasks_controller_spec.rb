@@ -12,7 +12,7 @@ describe TasksController do
     
     describe "get #show" do
       it "should block the user" do
-        get :show
+        get :show, id: 1
         response.should redirect_to user_session_path  
       end
     end
@@ -26,8 +26,16 @@ describe TasksController do
   end
   
   describe "user. logged in." do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      sign_in @user
+    end
+    
     describe "get #index" do
-      
+      it "should block the user" do
+        get :index
+        response.should be_success 
+      end
     end
   end
   

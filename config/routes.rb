@@ -59,5 +59,10 @@ FitThat::Application.routes.draw do
   
   # ROOT
   # need to set it for devise.
-  root :to => 'home#index'
+  # redirects here after user logs out
+  #
+  # currently set to the high voltage index page
+  # at views/pages/index.html.erb
+  root :to => 'high_voltage/pages#show', id: 'index'
+
 end

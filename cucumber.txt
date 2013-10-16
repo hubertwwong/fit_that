@@ -1,0 +1,69 @@
+Using the default profile...
+#encoding: utf-8
+Feature: task page
+
+  Scenario: index                         # features/task.feature:4
+    Given "user" is logged in             # features/step_definitions/page.rb:1
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>FitThat</title>
+        <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+        <script data-turbolinks-track="true" src="/assets/application.js"></script>
+        
+      </head>
+      <body>
+
+      <!-- devise -->
+      <p class="notice"></p>
+      <p class="alert"></p>
+
+        <a href="/users/sign_up">Register</a>
+        or
+        <a href="/users/sign_in">Login</a>
+
+      User: 
+        (not logged in)
+
+      <!-- main page -->
+      <h2>Sign up</h2>
+
+      <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        
+
+        <div><label for="user_email">Email</label><br />
+        <input autofocus="autofocus" id="user_email" name="user[email]" type="email" value="" /></div>
+
+        <div><label for="user_password">Password</label><br />
+        <input id="user_password" name="user[password]" type="password" /></div>
+
+        <div><label for="user_password_confirmation">Password confirmation</label><br />
+        <input id="user_password_confirmation" name="user[password_confirmation]" type="password" /></div>
+
+        <div><input name="commit" type="submit" value="Sign up" /></div>
+      </form>
+        <a href="/users/sign_in">Sign in</a><br />
+
+
+
+
+
+
+
+
+      </body>
+      </html>
+    When I visit "task_path"              # features/step_definitions/page.rb:17
+      No route matches [GET] "/users/task_path" (ActionController::RoutingError)
+      features/task.feature:6:in `When I visit "task_path"'
+    Then I see a page with these elements # features/step_definitions/page.rb:22
+      | elements |
+      | Listing  |
+      | New      |
+
+Failing Scenarios:
+cucumber features/task.feature:4 # Scenario: index
+
+1 scenario (1 failed)
+3 steps (1 failed, 1 skipped, 1 passed)
+0m3.458s

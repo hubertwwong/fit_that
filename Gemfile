@@ -76,7 +76,8 @@ group :test, :developoment do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'cucumber-rails', require: false
-  # replacement for YAML files for test.  
+  gem 'gherkin' 
+  # might need this for cucumber.
   gem 'factory_girl_rails', require: false
   # cleans the db after ever test.
   gem 'database_cleaner'
