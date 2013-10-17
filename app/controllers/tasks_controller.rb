@@ -20,6 +20,8 @@ class TasksController < ApplicationController
   # need to fix this.
   def new
     @task = Task.new
+    #@task_categories = TaskCategory.all
+    #@task_types = TaskTypes.all
   end
   
   # need to fix this.

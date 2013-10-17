@@ -1,9 +1,15 @@
 Using the default profile...
 #encoding: utf-8
-Feature: task page
+Feature: task pages
+  In order to enter a track your workout routine.
+  You need to visit the task pages to enter the information.
 
-  Scenario: index                         # features/task.feature:4
-    Given "user" is logged in             # features/step_definitions/page.rb:1
+  Background:                 # features/task.feature:6
+    Given "user" is logged in # features/step_definitions/page.rb:1
+
+  Scenario: index page                        # features/task.feature:9
+    When I visit the "index" page for "tasks" # features/step_definitions/page.rb:18
+      =====================
       <!DOCTYPE html>
       <html>
       <head>
@@ -18,52 +24,128 @@ Feature: task page
       <p class="notice"></p>
       <p class="alert"></p>
 
-        <a href="/users/sign_up">Register</a>
-        or
-        <a href="/users/sign_in">Login</a>
+        <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign out</a>
 
       User: 
-        (not logged in)
+        foo@foo.com
 
       <!-- main page -->
-      <h2>Sign up</h2>
+      <h1>Listing Tasks</h1>
 
-      <form accept-charset="UTF-8" action="/users" class="new_user" id="new_user" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-        
+      <table>
+        <thead>
+          <tr>
+            <th>t2</th>
+            <th>t1</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-        <div><label for="user_email">Email</label><br />
-        <input autofocus="autofocus" id="user_email" name="user[email]" type="email" value="" /></div>
+        <tbody>
+        </tbody>
+      </table>
 
-        <div><label for="user_password">Password</label><br />
-        <input id="user_password" name="user[password]" type="password" /></div>
+      <br>
 
-        <div><label for="user_password_confirmation">Password confirmation</label><br />
-        <input id="user_password_confirmation" name="user[password_confirmation]" type="password" /></div>
-
-        <div><input name="commit" type="submit" value="Sign up" /></div>
-      </form>
-        <a href="/users/sign_in">Sign in</a><br />
-
-
-
-
-
-
+      <a href="/tasks/new">New Task</a>
 
 
       </body>
       </html>
-    When I visit "task_path"              # features/step_definitions/page.rb:17
-      No route matches [GET] "/users/task_path" (ActionController::RoutingError)
-      features/task.feature:6:in `When I visit "task_path"'
-    Then I see a page with these elements # features/step_definitions/page.rb:22
-      | elements |
-      | Listing  |
-      | New      |
+    Then I see a page with these elements     # features/step_definitions/page.rb:38
+      | page_text |
+      | Listing   |
+      | New       |
+
+  Scenario: new page                        # features/task.feature:16
+    When I visit the "new" page for "tasks" # features/step_definitions/page.rb:18
+      =====================
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>FitThat</title>
+        <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+        <script data-turbolinks-track="true" src="/assets/application.js"></script>
+        
+      </head>
+      <body>
+
+      <!-- devise -->
+      <p class="notice"></p>
+      <p class="alert"></p>
+
+        <a data-method="delete" href="/users/sign_out" rel="nofollow">Sign out</a>
+
+      User: 
+        foo@foo.com
+
+      <!-- main page -->
+      <h1>New task</h1>
+
+      <form accept-charset="UTF-8" action="/tasks" class="new_task" id="new_task" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+
+        <!-- task -->
+        <select id="task_task_category_id" name="task[task_category_id]"><option value="1">cardio</option>
+      <option value="2">strength</option></select>
+        cardio
+        
+        <div class="field">
+          <label for="task_length">Length</label><br>
+          <input id="task_length" name="task[length]" type="text" />
+        </div>
+        <div class="field">
+          <label for="task_speed">Speed</label><br>
+          <input id="task_speed" name="task[speed]" type="text" />
+        </div>
+        <div class="field">
+          <label for="task_weight">Weight</label><br>
+          <input id="task_weight" name="task[weight]" type="text" />
+        </div>
+        <div class="field">
+          <label for="task_rep">Rep</label><br>
+          <input id="task_rep" name="task[rep]" type="text" />
+        </div>
+        <div class="field">
+          <label for="task_note">Note</label><br>
+          <input id="task_note" name="task[note]" type="text" />
+        </div>
+        <div class="actions">
+          <input name="commit" type="submit" value="Create Task" />
+        </div>
+      </form>
+      <!--
+      # cols
+        #
+        # user_id
+        # task_category_id
+        # task_type_id
+        # note - notes of the exercise if you need it.
+        # length - lenght of workout. mostly for cardio. in seconds.
+        # speed - speed of the workout. cardio equipment. avg speed. in mph.
+        # weight - weight you are lifting...
+        # rep - number of reps that lifting.
+        # started_at - if you want to add a date time.
+      -->
+
+      <a href="/tasks">Back</a>
+
+
+      </body>
+      </html>
+    Then I see a page with these elements   # features/step_definitions/page.rb:38
+      | page_text |
+      | reps      |
+      | weight    |
+      expected to find text "reps" in "Sign out User: foo@foo.com New task cardiostrength cardio Length Speed Weight Rep Note Back" (RSpec::Expectations::ExpectationNotMetError)
+      ./features/step_definitions/page.rb:41:in `block (2 levels) in <top (required)>'
+      ./features/step_definitions/page.rb:40:in `/^I see a page with these elements$/'
+      features/task.feature:18:in `Then I see a page with these elements'
 
 Failing Scenarios:
-cucumber features/task.feature:4 # Scenario: index
+cucumber features/task.feature:16 # Scenario: new page
 
-1 scenario (1 failed)
-3 steps (1 failed, 1 skipped, 1 passed)
-0m3.458s
+2 scenarios (1 failed, 1 passed)
+6 steps (1 failed, 5 passed)
+0m6.572s

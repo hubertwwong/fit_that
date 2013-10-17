@@ -1,0 +1,55 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- task -->
+  <%= f.collection_select :task_category_id, TaskCategory.all, :id, :name %>
+  <%= TaskCategory.first.name %>
+  
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.text_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :speed %><br>
+    <%= f.text_field :speed %>
+  </div>
+  <div class="field">
+    <%= f.label :weight %><br>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field">
+    <%= f.label :rep %><br>
+    <%= f.text_field :rep %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<!--
+# cols
+  #
+  # user_id
+  # task_category_id
+  # task_type_id
+  # note - notes of the exercise if you need it.
+  # length - lenght of workout. mostly for cardio. in seconds.
+  # speed - speed of the workout. cardio equipment. avg speed. in mph.
+  # weight - weight you are lifting...
+  # rep - number of reps that lifting.
+  # started_at - if you want to add a date time.
+-->
