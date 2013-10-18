@@ -89,7 +89,18 @@ Feature: task pages
         <!-- task -->
         <select id="task_task_category_id" name="task[task_category_id]"><option value="1">cardio</option>
       <option value="2">strength</option></select>
-        cardio
+        <select id="task_task_type_id" name="task[task_type_id]"><option value="1">treadmill</option>
+      <option value="2">ellipitical</option>
+      <option value="3">bike</option>
+      <option value="4">run</option>
+      <option value="5">chest</option>
+      <option value="6">shoulder</option>
+      <option value="7">back</option>
+      <option value="8">bicep</option>
+      <option value="9">tricep</option>
+      <option value="10">quad</option>
+      <option value="11">glutes</option>
+      <option value="12">legs</option></select>
         
         <div class="field">
           <label for="task_length">Length</label><br>
@@ -138,7 +149,7 @@ Feature: task pages
       | page_text |
       | reps      |
       | weight    |
-      expected to find text "reps" in "Sign out User: foo@foo.com New task cardiostrength cardio Length Speed Weight Rep Note Back" (RSpec::Expectations::ExpectationNotMetError)
+      expected to find text "reps" in "Sign out User: foo@foo.com New task cardiostrengthtreadmillellipiticalbikerunchestshoulderbackbiceptricepquadgluteslegs Length Speed Weight Rep Note Back" (RSpec::Expectations::ExpectationNotMetError)
       ./features/step_definitions/page.rb:41:in `block (2 levels) in <top (required)>'
       ./features/step_definitions/page.rb:40:in `/^I see a page with these elements$/'
       features/task.feature:18:in `Then I see a page with these elements'
@@ -148,4 +159,4 @@ cucumber features/task.feature:16 # Scenario: new page
 
 2 scenarios (1 failed, 1 passed)
 6 steps (1 failed, 5 passed)
-0m6.572s
+0m8.179s

@@ -13,7 +13,7 @@
 
   <!-- task -->
   <%= f.collection_select :task_category_id, TaskCategory.all, :id, :name %>
-  <%= TaskCategory.first.name %>
+  <%= f.collection_select :task_type_id, TaskType.all, :id, :name %>
   
   <div class="field">
     <%= f.label :length %><br>

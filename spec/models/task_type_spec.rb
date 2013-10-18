@@ -15,13 +15,13 @@ describe TaskType do
       
       context "fields" do
         it "name" do
-          expect(@tt1.name).to include('superAwesomeWorkout')
+          expect(@tt1.name).to include('treadmill')
         end
       end
       
       context "task category" do
         it "name" do
-          expect(@tt1.task_category.name).to include('category')
+          expect(@tt1.task_category.name).to include('cardio')
         end
       end
     end

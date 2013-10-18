@@ -1,20 +1,25 @@
-F...
+describe blok
+#<Task id: nil, user_id: 2, task_category_id: 3, task_type_id: 13, note: "note1", length: 60, speed: 60, weight: 0, rep: 10, started_at: "2013-10-18 01:46:44", created_at: nil, updated_at: nil>
+=====
+{"task_category_id"=>"3", "task_type_id"=>"13", "length"=>"60", "speed"=>"60", "weight"=>"0", "rep"=>"10", "note"=>"note1"}
+#<Task id: nil, user_id: 1, task_category_id: 3, task_type_id: 13, note: "note1", length: 60, speed: 60, weight: 0, rep: 10, started_at: nil, created_at: nil, updated_at: nil>
+F...............
 
 Failures:
 
-  1) Task relationships basic note should be something
-     Failure/Error: let(:task1) {FactoryGirl.create :task}
-     ActiveRecord::RecordInvalid:
-       Validation failed: Password can't be blank
-     # ./spec/models/task_spec.rb:9:in `block (4 levels) in <top (required)>'
-     # ./spec/models/task_spec.rb:12:in `block (4 levels) in <top (required)>'
+  1) TasksController user. logged in. post #create should block the user
+     Failure/Error: post :create, task: t.attributes
+     ActionView::MissingTemplate:
+       Missing template tasks/create, application/create with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+         * "#<RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator:0xd79a9d4>"
+     # ./spec/controllers/tasks_controller_spec.rb:46:in `block (4 levels) in <top (required)>'
 
-Finished in 1.28 seconds
-4 examples, 1 failure
+Finished in 3.37 seconds
+16 examples, 1 failure
 
 Failed examples:
 
-rspec ./spec/models/task_spec.rb:16 # Task relationships basic note should be something
+rspec ./spec/controllers/tasks_controller_spec.rb:42 # TasksController user. logged in. post #create should block the user
 
-Randomized with seed 44917
+Randomized with seed 28110
 

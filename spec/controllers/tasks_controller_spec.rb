@@ -37,6 +37,19 @@ describe TasksController do
         response.should be_success 
       end
     end
+    
+    describe "post #create" do
+      it "should block the user" do
+        t = FactoryGirl.build :task
+        puts "describe blok"
+        puts t.inspect
+        post :create, task: t.attributes
+        
+        # this does not seem to build the associations.
+        #post :create, task: FactoryGirl.attributes_for(:task)
+        response.should redirect_to tasks_path
+      end
+    end
   end
   
 end

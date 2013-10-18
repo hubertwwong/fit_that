@@ -28,6 +28,10 @@ FactoryGirl.define do
     task_category
     task_type
     
+    #puts user.inspect
+    #puts task_category.inspect
+    #puts task_type.inspect
+    
     note {generate(:note)}
     length {generate(:length)}
     speed {generate(:speed)}
