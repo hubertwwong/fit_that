@@ -41,8 +41,8 @@ describe TasksController do
     describe "post #create" do
       it "should block the user" do
         t = FactoryGirl.build :task
-        puts "describe blok"
-        puts t.inspect
+        #puts "describe blok"
+        #puts t.inspect
         post :create, task: t.attributes
         
         # this does not seem to build the associations.

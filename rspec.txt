@@ -1,25 +1,21 @@
-describe blok
-#<Task id: nil, user_id: 2, task_category_id: 3, task_type_id: 13, note: "note1", length: 60, speed: 60, weight: 0, rep: 10, started_at: "2013-10-18 01:46:44", created_at: nil, updated_at: nil>
 =====
 {"task_category_id"=>"3", "task_type_id"=>"13", "length"=>"60", "speed"=>"60", "weight"=>"0", "rep"=>"10", "note"=>"note1"}
-#<Task id: nil, user_id: 1, task_category_id: 3, task_type_id: 13, note: "note1", length: 60, speed: 60, weight: 0, rep: 10, started_at: nil, created_at: nil, updated_at: nil>
 F...............
 
 Failures:
 
   1) TasksController user. logged in. post #create should block the user
-     Failure/Error: post :create, task: t.attributes
-     ActionView::MissingTemplate:
-       Missing template tasks/create, application/create with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
-         * "#<RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator:0xd79a9d4>"
-     # ./spec/controllers/tasks_controller_spec.rb:46:in `block (4 levels) in <top (required)>'
+     Failure/Error: response.should redirect_to tasks_path
+       Expected response to be a redirect to <http://test.host/tasks> but was a redirect to <http://test.host/tasks/1>.
+       Expected "http://test.host/tasks" to be === "http://test.host/tasks/1".
+     # ./spec/controllers/tasks_controller_spec.rb:50:in `block (4 levels) in <top (required)>'
 
-Finished in 3.37 seconds
+Finished in 3.05 seconds
 16 examples, 1 failure
 
 Failed examples:
 
 rspec ./spec/controllers/tasks_controller_spec.rb:42 # TasksController user. logged in. post #create should block the user
 
-Randomized with seed 28110
+Randomized with seed 18253
 

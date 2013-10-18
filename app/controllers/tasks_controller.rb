@@ -5,23 +5,26 @@ class TasksController < ApplicationController
   
   # need to fix this.
   def create
-    puts "====="
-    puts task_params.inspect
+    #puts "====="
+    #puts task_params.inspect
     @task = Task.new(task_params)
     
     # add user id.
     @task.user_id = current_user.id
+    #puts @task.inspect
     
-    puts @task.inspect
-    #respond_to do |format|
-    #  if @post.save
-    #    format.html { redirect_to @post, notice: 'Post was successfully created.' }
-    #    format.json { render action: 'show', status: :created, location: @post }
-    #  else
-    #    format.html { render action: 'new' }
-    #    format.json { render json: @post.errors, status: :unprocessable_entity }
-    #  end
-    #end
+    # save to db.
+    respond_to do |format|
+      if @task.save
+        #format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to action: 'index' }
+        #format.json { render action: 'show', status: :created, location: @task }
+        #format.json { render action: 'index', status: :created }
+      else
+        format.html { render action: 'new' }
+        #format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
   # need to fix this.
