@@ -3,19 +3,27 @@
 <table>
   <thead>
     <tr>
-      <th>t2</th>
-      <th>t1</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>category</th>
+      <th>type</th>
+      <th>length</th>
+      <th>speed</th>
+      <th>weight</th>
+      <th>reps</th>
+      <th>note</th>
     </tr>
   </thead>
 
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.first_name %></td>
-        <td><%= task.last_name %></td>
+        <td><%= task.task_category.name %></td>
+        <td><%= task.task_type.name %></td>
+        <td><%= task.length %></td>
+        <td><%= task.speed %></td>
+        <td><%= task.weight %></td>
+        <td><%= task.rep %></td>
+        <td><%= task.note %></td>
+        
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
